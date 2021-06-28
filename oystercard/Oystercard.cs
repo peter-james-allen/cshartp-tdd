@@ -2,12 +2,16 @@ namespace oystercard
 {
     public class Oystercard
     {
-        public decimal Balance { get; }
+        public double Balance { get; private set; }
 
-        public Oystercard(decimal balance)
+        public Oystercard(double balance)
         {
             Balance = balance;
         }
 
+        public void TopUp(double amount)
+        {
+            Balance += amount;
+        }
     }
 }
