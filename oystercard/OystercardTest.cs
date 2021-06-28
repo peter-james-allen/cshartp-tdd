@@ -11,10 +11,10 @@ namespace oystercardTest
         }
 
         [Test]
-        public void CreateOysterCard()
+        public void NewOysterCardHasBalance()
         {
-            Oystercard oystercard = new Oystercard("Pete");
-            Assert.AreEqual("Pete", oystercard.Name);
+            Oystercard oystercard = new Oystercard(10);
+            Assert.AreEqual(10, oystercard.Balance);
         }
     }
 }

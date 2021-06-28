@@ -2,11 +2,11 @@ namespace oystercard
 {
     public class Oystercard
     {
-        public string Name;
+        public decimal Balance { get; }
 
-        public Oystercard(string name)
+        public Oystercard(decimal balance)
         {
-            Name = name;
+            Balance = balance;
         }
 
     }
