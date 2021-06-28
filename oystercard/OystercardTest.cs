@@ -31,12 +31,12 @@ namespace oystercardTest
             Assert.Throws<ArgumentOutOfRangeException>(() => oystercard.TopUp(10.0));
         }
 
-        [Test]
-        public void RemoveBalance()
-        {
-            oystercard.Deduct(10.0);
-            Assert.AreEqual(40.0, oystercard.Balance);
-        }
+        // [Test]
+        // public void RemoveBalance()
+        // {
+        //     oystercard.Deduct(10.0);
+        //     Assert.AreEqual(40.0, oystercard.Balance);
+        // }
 
        [Test]
        public void InJourney()
@@ -49,6 +49,14 @@ namespace oystercardTest
        {
            oystercard.TouchIn();
            Assert.AreEqual(true, oystercard.IsInJourney);
+
+       }
+
+       [Test]
+       public void MinimumLimit()
+       {
+           oystercard = new Oystercard(0.0);
+           Assert.Throws<ArgumentOutOfRangeException>(() => oystercard.TouchIn());
        }
 
        [Test]
@@ -57,6 +65,14 @@ namespace oystercardTest
            oystercard.TouchIn();
            oystercard.TouchOut();
            Assert.AreEqual(false, oystercard.IsInJourney);
+       }
+
+       [Test]
+       public void Journey()
+       {
+           oystercard.TouchIn();
+           oystercard.TouchOut();
+           Assert.AreEqual(49.0,oystercard.Balance);
        }
     }
 }
